@@ -16,6 +16,7 @@ import com.portfolio.springboot.portfolio.service.IProyectosService;
 import com.portfolio.springboot.portfolio.service.ISkillsService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -30,6 +31,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author krito
  */
 @RestController
+@CrossOrigin(origins = {"http://localhost:4200"})
 public class Controller {
     @Autowired
     private IPersonaService persoServ;
@@ -82,7 +84,7 @@ public class Controller {
         return persoServ.buscarPersona(id);
     }
     
-    @DeleteMapping("/delete/persona/deß/{id}")
+    @DeleteMapping("/delete/persona/de/{id}")
     public void deletePersona(@PathVariable Long id) {
         persoServ.borrarPersona(id);
     }
