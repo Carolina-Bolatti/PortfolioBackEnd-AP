@@ -84,7 +84,7 @@ public class Controller {
         return persoServ.buscarPersona(id);
     }
     
-    @DeleteMapping("/delete/persona/de/{id}")
+    @DeleteMapping("/delete/persona/{id}")
     public void deletePersona(@PathVariable Long id) {
         persoServ.borrarPersona(id);
     }
