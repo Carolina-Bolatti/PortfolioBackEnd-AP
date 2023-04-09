@@ -29,7 +29,7 @@ public class Persona implements Serializable {
     private String nombre;
     private String apellido;
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="dd/MM/yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd/MM/yyyy", locale = "es-AR", timezone = "America/Argentina/Buenos_Aires")
     private Date fechaNac;
     private String telefono;
     private String correo;
