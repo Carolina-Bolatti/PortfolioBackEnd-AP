@@ -4,6 +4,7 @@
  */
 package com.portfolio.springboot.portfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -28,12 +29,16 @@ public class ExperienciaLaboral {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String nombreEmpresa;
-    private String descripcion;
-    private Boolean esTrabajoActualar;
+    private String experienciaLaboralcol;
+    private Boolean esTrabajoActual;
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy")
     private Date fechaInicio;
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy")
     private Date fechaFin;
+    private String urlFotoEmpresa;
+    
     @ManyToOne
     @JoinColumn(name="persona_id", nullable=false)
     private Persona persona;

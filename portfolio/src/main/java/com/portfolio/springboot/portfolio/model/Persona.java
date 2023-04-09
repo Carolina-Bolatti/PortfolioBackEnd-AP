@@ -4,6 +4,7 @@
  */
 package com.portfolio.springboot.portfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.io.Serializable;
 import java.util.Date;
 import javax.persistence.Entity;
@@ -28,6 +29,7 @@ public class Persona implements Serializable {
     private String nombre;
     private String apellido;
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="dd/MM/yyyy")
     private Date fechaNac;
     private String telefono;
     private String correo;

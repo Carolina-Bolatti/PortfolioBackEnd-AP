@@ -4,6 +4,7 @@
  */
 package com.portfolio.springboot.portfolio.model;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -30,8 +31,10 @@ public class Educacion {
     private String descripcion;
     private String lugar;
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy")
     private Date fechaInicio;
     @Temporal(TemporalType.DATE)
+    @JsonFormat(pattern="yyyy")
     private Date fechaFin;
     private Boolean estaCursando;
     private String urlFoto;
