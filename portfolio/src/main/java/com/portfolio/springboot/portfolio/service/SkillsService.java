@@ -27,13 +27,13 @@ public class SkillsService implements ISkillsService {
     }
 
     @Override
-    public void crearSkills(Skills per) {
-        skillsRepo.save(per);
+    public Skills crearSkills(Skills per) {
+        return skillsRepo.save(per);
     }
 
     @Override
-    public void actualizarSkills(Skills per) {
-        skillsRepo.save(per);
+    public Skills actualizarSkills(Skills per) {
+        return skillsRepo.save(per);
     }
 
     @Override

@@ -27,14 +27,14 @@ public class ProyectosService implements IProyectosService {
     }
 
     @Override
-    public void crearProyectos(Proyectos per) {
-        proyectosRepo.save(per);
+    public Proyectos crearProyectos(Proyectos per) {
+        return proyectosRepo.save(per);
 
     }
 
     @Override
-    public void actualizarProyectos(Proyectos per) {
-        proyectosRepo.save(per);
+    public Proyectos actualizarProyectos(Proyectos per) {
+        return proyectosRepo.save(per);
 
     }
 

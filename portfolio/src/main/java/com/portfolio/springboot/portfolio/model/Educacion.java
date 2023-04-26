@@ -31,10 +31,10 @@ public class Educacion {
     private String descripcion;
     private String lugar;
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy", locale = "es-AR", timezone = "America/Argentina/Buenos_Aires")
     private Date fechaInicio;
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy", locale = "es-AR", timezone = "America/Argentina/Buenos_Aires")
     private Date fechaFin;
     private Boolean estaCursando;
     private String urlFoto;
