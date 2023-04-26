@@ -15,8 +15,8 @@ import java.util.List;
  */
 public interface IExperienciaLaboralService {
     public List<ExperienciaLaboral> verExperienciaLaboral();
-    public void crearExperienciaLaboral(ExperienciaLaboral per);
-    public void actualizarExperienciaLaboral(ExperienciaLaboral per);
+    public ExperienciaLaboral crearExperienciaLaboral(ExperienciaLaboral per);
+    public ExperienciaLaboral actualizarExperienciaLaboral(ExperienciaLaboral per);
     public void borrarExperienciaLaboral(Long id);
     public ExperienciaLaboral buscarExperienciaLaboral(Long id);
     public List<ExperienciaLaboral> buscarExperienciaLaboralDe(Long id);

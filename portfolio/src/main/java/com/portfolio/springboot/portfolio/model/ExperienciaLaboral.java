@@ -32,10 +32,10 @@ public class ExperienciaLaboral {
     private String experienciaLaboralcol;
     private Boolean esTrabajoActual;
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy", locale = "es-AR", timezone = "America/Argentina/Buenos_Aires")
     private Date fechaInicio;
     @Temporal(TemporalType.DATE)
-    @JsonFormat(pattern="yyyy")
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy", locale = "es-AR", timezone = "America/Argentina/Buenos_Aires")
     private Date fechaFin;
     private String urlFotoEmpresa;
     

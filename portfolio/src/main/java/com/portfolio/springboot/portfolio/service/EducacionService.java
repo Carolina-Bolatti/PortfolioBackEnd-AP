@@ -26,13 +26,13 @@ public class EducacionService implements IEducacionService {
     }
 
     @Override
-    public void crearEducacion(Educacion per) {
-        eduRepo.save(per);
+    public Educacion crearEducacion(Educacion per) {
+        return eduRepo.save(per);
     }
 
     @Override
-    public void actualizarEducacion(Educacion per) {
-        eduRepo.save(per);
+    public Educacion actualizarEducacion(Educacion per) {
+        return eduRepo.save(per);
     }
 
     @Override
@@ -48,6 +48,7 @@ public class EducacionService implements IEducacionService {
     @Override
     public List<Educacion> buscarEducacionDe(Long id) {
         return eduRepo.findAll().stream().filter(e -> e.getPersona().getId().equals(id))
+                .sorted((a, b) -> - a.getFechaInicio().compareTo(b.getFechaInicio()))
                 .collect(Collectors.toUnmodifiableList());    }
     
 }

@@ -15,8 +15,8 @@ import java.util.List;
  */
 public interface ISkillsService {
     public List<Skills> verSkills();
-    public void crearSkills(Skills per);
-    public void actualizarSkills(Skills per);
+    public Skills crearSkills(Skills per);
+    public Skills actualizarSkills(Skills per);
     public void borrarSkills(Long id);
     public Skills buscarSkills(Long id);
     public List<Skills> buscarSkillsDe(Long id);

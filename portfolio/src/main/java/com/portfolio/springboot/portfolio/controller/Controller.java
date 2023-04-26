@@ -9,11 +9,13 @@ import com.portfolio.springboot.portfolio.model.ExperienciaLaboral;
 import com.portfolio.springboot.portfolio.model.Persona;
 import com.portfolio.springboot.portfolio.model.Proyectos;
 import com.portfolio.springboot.portfolio.model.Skills;
+import com.portfolio.springboot.portfolio.model.TipoEmpleo;
 import com.portfolio.springboot.portfolio.service.IEducacionService;
 import com.portfolio.springboot.portfolio.service.IExperienciaLaboralService;
 import com.portfolio.springboot.portfolio.service.IPersonaService;
 import com.portfolio.springboot.portfolio.service.IProyectosService;
 import com.portfolio.springboot.portfolio.service.ISkillsService;
+import com.portfolio.springboot.portfolio.service.ITipoEmpleoService;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -40,6 +42,8 @@ public class Controller {
     @Autowired
     private IExperienciaLaboralService expLabServ;
     @Autowired
+    private ITipoEmpleoService tipoEmpleoServ;
+    @Autowired
     private IProyectosService proyServ;
     @Autowired
     private ISkillsService skillsServ;
@@ -64,6 +68,23 @@ public class Controller {
     @ResponseBody
     public List<ExperienciaLaboral> verExperiencia() {
         return expLabServ.verExperienciaLaboral();
+    }
+    
+    @GetMapping("/ver/empleo")
+    @ResponseBody
+    public List<TipoEmpleo> verTipoEmpleo() {
+        return tipoEmpleoServ.verTipoEmpleo();
+    }
+    
+    @PostMapping("/new/empleo/{nombre}")
+    public TipoEmpleo agregarTipoEmpleo(@PathVariable String nombre) {
+        return tipoEmpleoServ.obtieneCrea(nombre);
+    }
+
+    @GetMapping("/ver/empleo/{nombre}")
+    @ResponseBody
+    public TipoEmpleo verTipoEmpleo(@PathVariable String nombre) {
+        return tipoEmpleoServ.obtiene(nombre);
     }
     
     @GetMapping("/ver/proyectos")
@@ -96,6 +117,7 @@ public class Controller {
     
     @PutMapping("/update/persona")
     public void actualizarPersona(@RequestBody Persona persona) {
+        System.out.println(persona.getUrlBanner());
         persoServ.actualizarPersona(persona);
     }
     
@@ -105,19 +127,19 @@ public class Controller {
         return eduServ.buscarEducacionDe(id);
     }
     
-    @DeleteMapping("/delete/educacion/de/{id}")
+    @DeleteMapping("/delete/educacion/{id}")
     public void deleteEducacionDe(@PathVariable Long id) {
         eduServ.borrarEducacion(id);
     }
 
     @PostMapping("/new/educacion")
-    public void agregarEducacion(@RequestBody Educacion educacion) {
-        eduServ.crearEducacion(educacion);
+    public Educacion agregarEducacion(@RequestBody Educacion educacion) {
+        return eduServ.crearEducacion(educacion);
     }
 
     @PutMapping("/update/educacion")
-    public void actualizarEducacion(@RequestBody Educacion educacion) {
-        eduServ.actualizarEducacion(educacion);
+    public Educacion actualizarEducacion(@RequestBody Educacion educacion) {
+        return eduServ.actualizarEducacion(educacion);
     }
 
     @GetMapping("/ver/experiencia/de/{id}")
@@ -126,19 +148,19 @@ public class Controller {
         return expLabServ.buscarExperienciaLaboralDe(id);
     }
     
-    @DeleteMapping("/delete/experiencia/de/{id}")
+    @DeleteMapping("/delete/experiencia/{id}")
     public void deleteExperienciaDe(@PathVariable Long id) {
         expLabServ.borrarExperienciaLaboral(id);
     }
 
     @PostMapping("/new/experiencia")
-    public void agregarExperiencia(@RequestBody ExperienciaLaboral experiencia) {
-        expLabServ.crearExperienciaLaboral(experiencia);
+    public ExperienciaLaboral agregarExperiencia(@RequestBody ExperienciaLaboral experiencia) {
+        return expLabServ.crearExperienciaLaboral(experiencia);
     }
 
     @PutMapping("/update/experiencia")
-    public void actualizarExperiencia(@RequestBody ExperienciaLaboral experiencia) {
-        expLabServ.actualizarExperienciaLaboral(experiencia);
+    public ExperienciaLaboral actualizarExperiencia(@RequestBody ExperienciaLaboral experiencia) {
+        return expLabServ.actualizarExperienciaLaboral(experiencia);
     }
 
     @GetMapping("/ver/proyectos/de/{id}")
@@ -147,19 +169,19 @@ public class Controller {
         return proyServ.buscarProyectosDe(id);
     }
     
-    @DeleteMapping("/delete/proyectos/de/{id}")
+    @DeleteMapping("/delete/proyectos/{id}")
     public void deleteProyectosDe(@PathVariable Long id) {
         proyServ.borrarProyectos(id);
     }
 
     @PostMapping("/new/proyectos")
-    public void agregarProyectos(@RequestBody Proyectos proyecto) {
-        proyServ.crearProyectos(proyecto);
+    public Proyectos agregarProyectos(@RequestBody Proyectos proyecto) {
+        return proyServ.crearProyectos(proyecto);
     }
 
     @PutMapping("/update/proyectos")
-    public void actualizarProyectos(@RequestBody Proyectos proyecto) {
-        proyServ.actualizarProyectos(proyecto);
+    public Proyectos actualizarProyectos(@RequestBody Proyectos proyecto) {
+        return proyServ.actualizarProyectos(proyecto);
     }
 
     @GetMapping("/ver/skills/de/{id}")
@@ -168,19 +190,19 @@ public class Controller {
         return skillsServ.buscarSkillsDe(id);
     }
 
-    @DeleteMapping("/delete/skills/de/{id}")
+    @DeleteMapping("/delete/skills/{id}")
     public void deleteSkillsDe(@PathVariable Long id) {
-        proyServ.borrarProyectos(id);
+        skillsServ.borrarSkills(id);
     }
 
     @PostMapping("/new/skills")
-    public void agregarSkills(@RequestBody Skills skill) {
-        skillsServ.crearSkills(skill);
+    public Skills agregarSkills(@RequestBody Skills skill) {
+        return skillsServ.crearSkills(skill);
     }
 
     @PutMapping("/update/skills")
-    public void actiualizarSkills(@RequestBody Skills skill) {
-        skillsServ.actualizarSkills(skill);
+    public Skills actiualizarSkills(@RequestBody Skills skill) {
+        return skillsServ.actualizarSkills(skill);
     }
 
 }

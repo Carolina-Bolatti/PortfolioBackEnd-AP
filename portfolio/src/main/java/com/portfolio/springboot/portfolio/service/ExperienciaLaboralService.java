@@ -26,13 +26,13 @@ public class ExperienciaLaboralService implements IExperienciaLaboralService {
     }
 
     @Override
-    public void crearExperienciaLaboral(ExperienciaLaboral per) {
-        expLabRepo.save(per);
+    public ExperienciaLaboral crearExperienciaLaboral(ExperienciaLaboral per) {
+        return expLabRepo.save(per);
     }
 
     @Override
-    public void actualizarExperienciaLaboral(ExperienciaLaboral per) {
-        expLabRepo.save(per);
+    public ExperienciaLaboral actualizarExperienciaLaboral(ExperienciaLaboral per) {
+        return expLabRepo.save(per);
     }
 
     @Override
@@ -48,6 +48,7 @@ public class ExperienciaLaboralService implements IExperienciaLaboralService {
     @Override
     public List<ExperienciaLaboral> buscarExperienciaLaboralDe(Long id) {
         return expLabRepo.findAll().stream().filter(e -> e.getPersona().getId().equals(id))
+                .sorted((a, b) -> - a.getFechaInicio().compareTo(b.getFechaInicio()))
                 .collect(Collectors.toUnmodifiableList());    }
     
 }

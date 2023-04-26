@@ -14,8 +14,8 @@ import java.util.List;
  */
 public interface IEducacionService {
     public List<Educacion> verEducacion();
-    public void crearEducacion(Educacion per);
-    public void actualizarEducacion(Educacion per);
+    public Educacion crearEducacion(Educacion per);
+    public Educacion actualizarEducacion(Educacion per);
     public void borrarEducacion(Long id);
     public Educacion buscarEducacion(Long id);
     public List<Educacion> buscarEducacionDe(Long id);
