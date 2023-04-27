@@ -5,22 +5,22 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema profile_app
+-- Schema bo4u5pptyxcx2tmmzkoy
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema profile_app
+-- Schema bo4u5pptyxcx2tmmzkoy
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS profile_app DEFAULT CHARACTER SET utf8 ;
+CREATE SCHEMA IF NOT EXISTS bo4u5pptyxcx2tmmzkoy DEFAULT CHARACTER SET utf8 ;
 -- -----------------------------------------------------
--- Schema profile_app
+-- Schema bo4u5pptyxcx2tmmzkoy
 -- -----------------------------------------------------
-USE profile_app ;
+USE bo4u5pptyxcx2tmmzkoy ;
 
 -- -----------------------------------------------------
--- Table profile_app.`persona`
+-- Table bo4u5pptyxcx2tmmzkoy.`persona`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS profile_app.`persona` (
+CREATE TABLE IF NOT EXISTS bo4u5pptyxcx2tmmzkoy.`persona` (
   `id` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `apellido` VARCHAR(45) NOT NULL,
@@ -43,9 +43,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table profile_app.`tipo_empleo`
+-- Table bo4u5pptyxcx2tmmzkoy.`tipo_empleo`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS profile_app.`tipo_empleo` (
+CREATE TABLE IF NOT EXISTS bo4u5pptyxcx2tmmzkoy.`tipo_empleo` (
   `id` INT NOT NULL,
   `nombre_tipo` VARCHAR(200) NOT NULL,
   PRIMARY KEY (`id`))
@@ -53,9 +53,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table profile_app.`experiencia_laboral`
+-- Table bo4u5pptyxcx2tmmzkoy.`experiencia_laboral`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS profile_app.`experiencia_laboral` (
+CREATE TABLE IF NOT EXISTS bo4u5pptyxcx2tmmzkoy.`experiencia_laboral` (
   `id` INT NOT NULL,
   `nombre_empresa` VARCHAR(500) NOT NULL,
   `es_trabajo_actual` TINYINT NULL,
@@ -70,21 +70,21 @@ CREATE TABLE IF NOT EXISTS profile_app.`experiencia_laboral` (
   INDEX `fk_experiencia_laboral_tipo_empleo1_idx` (`tipo_empleo_id` ASC) VISIBLE,
   CONSTRAINT `fk_experiencia_laboral_persona`
     FOREIGN KEY (`persona_id`)
-    REFERENCES profile_app.`persona` (`id`)
+    REFERENCES bo4u5pptyxcx2tmmzkoy.`persona` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_experiencia_laboral_tipo_empleo1`
     FOREIGN KEY (`tipo_empleo_id`)
-    REFERENCES profile_app.`tipo_empleo` (`id`)
+    REFERENCES bo4u5pptyxcx2tmmzkoy.`tipo_empleo` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table profile_app.`educacion`
+-- Table bo4u5pptyxcx2tmmzkoy.`educacion`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS profile_app.`educacion` (
+CREATE TABLE IF NOT EXISTS bo4u5pptyxcx2tmmzkoy.`educacion` (
   `id` INT NOT NULL,
   `titulo_alcanzado` VARCHAR(200) NOT NULL,
   `descripcion` VARCHAR(300) NOT NULL,
@@ -98,16 +98,16 @@ CREATE TABLE IF NOT EXISTS profile_app.`educacion` (
   INDEX `fk_educacion_persona1_idx` (`persona_id` ASC) VISIBLE,
   CONSTRAINT `fk_educacion_persona1`
     FOREIGN KEY (`persona_id`)
-    REFERENCES profile_app.`persona` (`id`)
+    REFERENCES bo4u5pptyxcx2tmmzkoy.`persona` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table profile_app.`skills`
+-- Table bo4u5pptyxcx2tmmzkoy.`skills`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS profile_app.`skills` (
+CREATE TABLE IF NOT EXISTS bo4u5pptyxcx2tmmzkoy.`skills` (
   `id` INT NOT NULL,
   `tipo` VARCHAR(10) NOT NULL,
   `nombre_skill` VARCHAR(100) NOT NULL,
@@ -117,16 +117,16 @@ CREATE TABLE IF NOT EXISTS profile_app.`skills` (
   INDEX `fk_skills_persona1_idx` (`persona_id` ASC) VISIBLE,
   CONSTRAINT `fk_skills_persona1`
     FOREIGN KEY (`persona_id`)
-    REFERENCES profile_app.`persona` (`id`)
+    REFERENCES bo4u5pptyxcx2tmmzkoy.`persona` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table profile_app.`proyectos`
+-- Table bo4u5pptyxcx2tmmzkoy.`proyectos`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS profile_app.`proyectos` (
+CREATE TABLE IF NOT EXISTS bo4u5pptyxcx2tmmzkoy.`proyectos` (
   `id` INT NOT NULL,
   `nombre` VARCHAR(45) NOT NULL,
   `descripcion` VARCHAR(200) NOT NULL,
@@ -136,7 +136,7 @@ CREATE TABLE IF NOT EXISTS profile_app.`proyectos` (
   INDEX `fk_proyectos_persona1_idx` (`persona_id` ASC) VISIBLE,
   CONSTRAINT `fk_proyectos_persona1`
     FOREIGN KEY (`persona_id`)
-    REFERENCES profile_app.`persona` (`id`)
+    REFERENCES bo4u5pptyxcx2tmmzkoy.`persona` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
