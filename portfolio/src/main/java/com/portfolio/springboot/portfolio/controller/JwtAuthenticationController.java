@@ -26,7 +26,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author carolinabolatti
  */
 @RestController
-@CrossOrigin(origins = {"http://localhost:4200"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://portfoliofrontend-ap-1e23d.web.app"})
 public class JwtAuthenticationController {
 
 	@Autowired
