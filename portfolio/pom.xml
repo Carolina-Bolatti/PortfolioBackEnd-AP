@@ -69,6 +69,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 				<configuration>
+                <mainClass>com.portfolio.springboot.portfolio.PortfolioApplication</mainClass>
 					<excludes>
 						<exclude>
 							<groupId>org.projectlombok</groupId>
@@ -77,7 +78,7 @@
 					</excludes>
 				</configuration>
 			</plugin>
-		</plugins>
+                    </plugins>
 	</build>
 
 </project>
