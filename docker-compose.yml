@@ -1,23 +1,23 @@
 version: '3.8'
 services:
-  mysql:
-    image: mysql:8.0.32
-    container_name: mysql
-    ports:
-      - "3306:3306"
-    environment:
-      - MYSQL_ROOT_PASSWORD=argentina
-      - MYSQL_DATABASE=profile_app
-      - MYSQL_USER=argentina
-      - MYSQL_PASSWORD=programa
-    volumes:
-      - ./:/tmp
+#  mysql:
+#    image: mysql:8.0.32
+#    container_name: mysql
+#    ports:
+#      - "3306:3306"
+#    environment:
+#      - MYSQL_ROOT_PASSWORD=argentina
+#      - MYSQL_DATABASE=profile_app
+#      - MYSQL_USER=argentina
+#      - MYSQL_PASSWORD=programa
+#    volumes:
+#      - ./:/tmp
   spring:
     image: jdk11
     container_name: spring
     build:
       context: .
-      dockerfile: Dockerfile-spring
+      dockerfile: Dockerfile
       args:
         - JAR_FILE=portfolio-0.0.1-SNAPSHOT.jar
     ports:
@@ -26,5 +26,3 @@ services:
       - CLASSPATH=/
     volumes:
       - ./:/tmp
-    depends_on:
-      [mysql]
