@@ -1,0 +1,5 @@
+FROM mysql:8.0.32
+#COPY BBDD-AP/forward.engineering.sql /tmp/
+#COPY BBDD-AP/inserts.sql /tmp/
+ENTRYPOINT ["docker-entrypoint.sh"]
+#CMD  ["docker-entrypoint.sh &", ";", "sleep", "5", ";", "mysql", "--user=argentina", "--database=profile_app", "--password=programa", "<", "/tmp/forward.engineering.sql", ";", "mysql", "--user=argentina", "--database=profile_app", "--password=programa", "<", "/tmp/inserts.sql"]
