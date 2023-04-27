@@ -33,7 +33,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @author krito
  */
 @RestController
-@CrossOrigin(origins = {"https://portfoliofrontend-ap-1e23d.web.app"})
+@CrossOrigin(origins = {"http://localhost:4200", "https://portfoliofrontend-ap-1e23d.web.app"})
 public class Controller {
     @Autowired
     private IPersonaService persoServ;
