@@ -22,7 +22,7 @@ INSERT INTO skills (id,nombre_skill,url_porcentaje,persona_id,tipo)
 VALUES (3,'OFFICE','assets/skills/imagenes/LOAD 75.png',1,'HARD');
 
 INSERT INTO skills (id,nombre_skill,url_porcentaje,persona_id,tipo)
-VALUES (4,'HTML/CSS/PHP/JAVASCRIPT/JAVA/ PYTHON','https://drive.google.com/file/d/15OHaeUH5CyhIff0SM01RFIbsVmn0N7B0/view?usp=share_link',1,'HARD');
+VALUES (4,'HTML/CSS/PHP/JAVASCRIPT/JAVA/ PYTHON','assets/skills/imagenes/LOAD 12.png',1,'HARD');
 
 INSERT INTO skills (id,nombre_skill,url_porcentaje,persona_id,tipo)
 VALUES (5,'CREATIVIDAD & EMPATIA','assets/skills/imagenes/LOAD 100.png',1,'SOFT');
